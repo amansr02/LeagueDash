@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title%}Edash{% endblock %}
+
+{% block content %}
+        <div class="m-4 mx-auto text-white" style="max-width: 540px;">
+            <div class="row no-gutters justify-content-center ">
+                <div class="col-md-4">
+                    <img src="{{team.image_url}}" class="card-img mx-auto img-responsive p-3" alt="Hello World">
+                </div>
+            </div>
+            <div class="text-center">
+                    <h5 class="card-title">{{team.name}}    </h5>
+            </div>
+        </div>
+        {% for player in team.players %} 
+        <div class="card m-4 mx-auto bg-dark text-white" style="max-width: 540px;">
+        <div class="row no-gutters justify-content-center ">
+            <div class="col-md-4">
+                <img src="{{player.image_url}}" class="card-img img-responsive p-3" alt="Hello World">
+            </div>
+            <div class="col-md-8 text-center ">
+                <div class="card-body align-items-center">
+                    <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+                    <p class="card-text">{{player.name}}</p>
+                    <p class="card-text"><small class="text-muted">Location: {{player.role}}</small></p>
+                </div>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

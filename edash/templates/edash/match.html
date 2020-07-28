@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title%}Edash{% endblock %}
+
+{% block content %}
+    <h2 class="m-3 text-white">Upcoming Matches:</h2>
+    <div class="card-columns">
+    {% for match in upcoming_matches %} 
+        <div class="card m-4 mx-auto bg-dark text-white" style="max-width: 540px;">
+        <div class="row no-gutters justify-content-center ">
+            <div class="col-md-4">
+                <img src="{{match.opponents.0.opponent.image_url}}" class="card-img img-responsive p-3">
+            </div>
+        <div class="col-md-4 text-center ">
+        <div class="card-body align-items-center">
+            <h5 class="card-title">{{match.name}}</h5>
+            <p class="card-text">{{match.scheduled_at}}</p>
+        </div>
+        </div>
+            <div class="col-md-4">
+                <img src="{{match.opponents.1.opponent.image_url}}" class="card-img img-responsive p-3">
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>  
+    
+    <h2 class="m-3 text-white">Full Schedule:</h2>
+    <div class= "card-columns">
+    {% for match in matches %} 
+        <div class="card m-4 mx-auto bg-dark text-white" style="max-width: 540px;">
+        <div class="row no-gutters justify-content-center ">
+            <div class="col-md-4">
+                <img src="{{match.opponents.0.opponent.image_url}}" class="card-img img-responsive p-3">
+            </div>
+        <div class="col-md-4 text-center ">
+        <div class="card-body align-items-center">
+            <h5 class="card-title">{{match.name}}</h5>
+            <p class="card-text">{{match.scheduled_at}}</p>
+        </div>
+        </div>
+            <div class="col-md-4">
+                <img src="{{match.opponents.1.opponent.image_url}}" class="card-img img-responsive p-3">
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock content %}
