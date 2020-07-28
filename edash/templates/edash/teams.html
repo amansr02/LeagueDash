@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title%}Edash{% endblock %}
+
+{% block content %}
+    <div class= "card-columns">
+    {% for team in teams %} 
+        <div class="card m-4 mx-auto bg-dark text-white" style="max-width: 540px;">
+        <div class="row no-gutters justify-content-center ">
+            <div class="col-md-4">
+                <img src="{{team.image_url}}" class="card-img img-responsive p-3" alt="Hello World">
+            </div>
+            <div class="col-md-8 text-center ">
+                <div class="card-body align-items-center">
+                    <h5 class="card-title">{{team.acronym}}</h5>
+                    <p class="card-text">{{team.name}}</p>
+                    <p class="card-text"><small class="text-muted">Location: {{team.location}}</small></p>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'team' team.id %}" class="stretched-link"></a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock content %}
